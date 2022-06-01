@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "@remix-run/eslint-config",
+    "@remix-run/eslint-config/node",
+    "plugin:tailwindcss/recommended",
+    "@remix-run/eslint-config/jest-testing-library",
+    "prettier"
+  ],
+  "plugins": ["tailwindcss"],
+  "settings": {
+    "jest": {
+      "version": 27
+    }
+  }
+}

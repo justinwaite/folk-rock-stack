@@ -1,0 +1,71 @@
+{
+  "name": "folk-rock-stack-template",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "build": "run-s build:*",
+    "build:css": "run-s generate:css -- --minify",
+    "build:remix": "remix build",
+    "dev": "run-p dev:*",
+    "dev:css": "run-s generate:css -- --watch",
+    "dev:remix": "cross-env NODE_ENV=development netlify dev",
+    "generate:css": "tailwindcss -o ./app/styles/tailwind.css",
+    "lint": "eslint .",
+    "test": "vitest --config ./vitest.config.ts",
+    "test:staged": "vitest related --run --config ./vitest.config.ts",
+    "start": "cross-env NODE_ENV=production netlify dev",
+    "prepare": "husky install",
+    "db:generate": "prisgsma generate",
+    "db:push": "prisma db push"
+  },
+  "dependencies": {
+    "@netlify/functions": "*",
+    "@prisma/client": "*",
+    "@remix-run/netlify": "*",
+    "@remix-run/node": "*",
+    "@remix-run/react": "*",
+    "@remix-validated-form/with-zod": "*",
+    "classnames": "*",
+    "cross-env": "*",
+    "react": "*",
+    "react-dom": "*",
+    "remix-validated-form": "*",
+    "zod": "*",
+    "zod-form-data": "*"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "*",
+    "@remix-run/eslint-config": "*",
+    "@tailwindcss/aspect-ratio": "*",
+    "@tailwindcss/forms": "*",
+    "@tailwindcss/typography": "*",
+    "@testing-library/jest-dom": "*",
+    "@testing-library/react": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@vitejs/plugin-react": "*",
+    "eslint": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-tailwindcss": "*",
+    "happy-dom": "*",
+    "husky": "*",
+    "lint-staged": "*",
+    "npm-run-all": "*",
+    "prettier": "*",
+    "prisma": "*",
+    "tailwindcss": "*",
+    "typescript": "*",
+    "vite-tsconfig-paths": "*",
+    "vitest": "*"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --cache --fix",
+      "npm run test:staged"
+    ],
+    "prisma/schema.prisma": "prisma format"
+  }
+}

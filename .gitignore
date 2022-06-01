@@ -1,0 +1,14 @@
+node_modules
+
+/.cache
+/public/build
+/.netlify
+.env
+
+/app/styles/tailwind.css
+
+.idea
+
+.eslintcache
+
+/coverage
